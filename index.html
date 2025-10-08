@@ -1,32 +1,477 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vladimir's Website</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ERP‑Beratung | Unabhängige Auswahl, Einführung & Projektleitung</title>
+  <meta name="description" content="Unabhängige ERP‑Beratung für KMU in DACH: Analyse, Lastenheft, Systemauswahl, Implementierung, Projektrettung. Paketpreise, Referenzen, FAQ, Blog & Kontakt." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚙️</text></svg>">
+  <style>
+    :root{
+      --bg:#0b1220;--surface:#0f172a;--brand:#6ee7b7;--brand2:#38bdf8;--text:#e2e8f0;--muted:#94a3b8;--line:#1f2937;--shadow:0 12px 30px rgba(0,0,0,.35);--radius:16px;--radius-lg:22px;--max:1200px
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:100%;max-width:var(--max);margin-inline:auto;padding:0 20px}
+    .btn{display:inline-block;padding:14px 20px;border-radius:999px;font-weight:700}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0b1220}
+    .btn-ghost{border:1px solid #22314c}
+    .badge{font-size:.8rem;color:#0b1220;background:linear-gradient(135deg,var(--brand),var(--brand2));display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800}
+    header.site{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.7);backdrop-filter: blur(10px);border-bottom:1px solid #1e293b}
+    .nav{display:flex;align-items:center;gap:18px;min-height:64px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900}
+    .mark{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0b1220;box-shadow:var(--shadow)}
+    .spacer{flex:1}
+    .hero{position:relative;overflow:hidden}
+    .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:86px 0}
+    .eyebrow{font-size:.9rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+    h1{font-size: clamp(2rem, 1.2rem + 3.2vw, 3.4rem);line-height:1.1;margin:10px 0 18px}
+    .lead{font-size: clamp(1rem, .9rem + .7vw, 1.2rem);color:#cbd5e1}
+    .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .hero-card{background:linear-gradient(180deg,#0f172a,#0b1327);border:1px solid #1f2a44;padding:16px;border-radius:var(--radius-lg);box-shadow:var(--shadow)}
+    .hero img.portrait{width:100%;border-radius:14px;border:1px solid #1f2a44}
+    .pill{border:1px dashed #26334f;border-radius:999px;padding:8px 12px;font-size:.9rem;color:var(--muted)}
+    .trust{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin-top:22px}
+    section{padding:80px 0;border-top:1px solid var(--line)}
+    section.alt{background: radial-gradient(1200px 300px at 50% 0%, rgba(56,189,248,.08), transparent 60%)}
+    h2{font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem);margin:0 0 22px}
+    .grid{display:grid;gap:18px}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    @media (max-width: 980px){.hero-inner{grid-template-columns:1fr}.grid.cols-3,.grid.cols-4{grid-template-columns:1fr 1fr}}
+    @media (max-width: 640px){.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg,#0f172a,#0b1327);border:1px solid #1f2a44;border-radius:var(--radius);padding:18px}
+    .card h3{margin:8px 0 6px;font-size:1.1rem}
+    .icon{width:28px;height:28px}
+    .kpis{display:flex;gap:18px;flex-wrap:wrap}
+    .kpi{flex:1 1 160px;border:1px solid #213252;border-radius:14px;padding:14px;text-align:center}
+    .kpi .v{font-size:1.6rem;font-weight:800}
+    .pricing{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+    .price{border:1px solid #22314c;border-radius:18px;padding:20px;position:relative}
+    .price .tag{position:absolute;right:14px;top:14px;background:#0b152d;border:1px solid #20304c;border-radius:999px;padding:4px 10px;font-size:.8rem}
+    .price .amount{font-size:2rem;font-weight:900;margin:8px 0}
+    .price ul{color:#cbd5e1;padding-left:18px}
+    .price li{margin:8px 0}
+    .steps{counter-reset: step}
+    .step{display:flex;gap:14px;align-items:flex-start}
+    .step:not(:last-child){padding-bottom:14px;border-bottom:1px dashed #22314c;margin-bottom:14px}
+    .num{counter-increment: step;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#0b152d;border:1px solid #1f2a44}
+    .num::after{content: counter(step)}
+    .logos{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+    @media (max-width: 900px){.pricing{grid-template-columns:1fr}.logos{grid-template-columns:repeat(3,1fr)}}
+    .logo-tile{background:#0b152d;border:1px dashed #22314c;border-radius:12px;display:grid;place-items:center;min-height:70px;font-weight:800;color:#5aaad3}
+    .faq details{border:1px solid #22314c;border-radius:12px;padding:14px;background:#0b152d}
+    .faq details+details{margin-top:12px}
+    .faq summary{cursor:pointer;font-weight:700}
+    .case{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+    @media (max-width: 900px){.case{grid-template-columns:1fr}}
+    .contact{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+    @media (max-width: 900px){.contact{grid-template-columns:1fr}}
+    form{display:grid;gap:12px}
+    input, textarea, select{background:#0b152d;border:1px solid #22314c;border-radius:12px;padding:12px;color:var(--text);font:inherit}
+    textarea{min-height:120px}
+    footer{padding:30px 0;border-top:1px solid #1e293b;color:var(--muted)}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:14px}
+    @media (max-width: 900px){.footer-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width: 640px){.footer-grid{grid-template-columns:1fr}}
+    /* Search overlay */
+    .search{position:fixed;inset:0;background:rgba(2,6,23,.8);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:60}
+    .search .box{width:min(720px,90vw);background:#0f172a;border:1px solid #1f2a44;border-radius:16px;padding:18px}
+    /* Cookie banner */
+    .cookie{position:fixed;left:18px;right:18px;bottom:18px;background:#0f172a;border:1px solid #1f2a44;border-radius:16px;padding:14px;display:none;z-index:70}
+    .floating-cta{position:fixed;right:18px;bottom:18px;z-index:40}
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Vladimir's Website</h1>
-        <img src="assets/images/vladimir-photo.jpg" alt="Vladimir Horunci" style="max-width: 150px; border-radius: 50%; margin-top: 20px;">
-    </header>
-    <main>
-        <section>
-            <h2>About Vladimir</h2>
-            <p>Vladimir is an industrial engineer specializing in process optimization. He is passionate about improving efficiency and finding innovative solutions to complex problems.</p>
-            <p>In his free time, Vladimir enjoys playing sports to stay active and healthy. He currently resides in the beautiful city of Kempten, where he finds inspiration in the surrounding landscapes.</p>
-            <p>Vladimir works at the AGCO Corporation Fendt plant in Marktoberdorf, a leading facility for agricultural machinery.</p>
-            <img src="assets/images/fendt-plant.jpg" alt="AGCO Corporation Fendt Plant in Marktoberdorf" style="max-width: 100%; height: auto; margin-top: 20px;">
-        </section>
-        <section>
-            <h2>Projects</h2>
-            <p>Vladimir has worked on various projects that showcase his skills in web development, design, and process optimization. Check out his portfolio for more details.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Vladimir. All rights reserved.</p>
-    </footer>
-    <script src="assets/js/scripts.js"></script>
+  <!-- Header / Nav -->
+  <header class="site">
+    <div class="container nav">
+      <div class="logo" aria-label="Logo"><span class="mark">ERP</span><span>Ihre ERP‑Beratung</span></div>
+      <nav class="spacer" aria-label="Hauptnavigation">
+        <a class="link" href="#leistungen">Leistungen</a>
+        <a class="link" href="#pakete">Pakete</a>
+        <a class="link" href="#vorgehen">Vorgehen</a>
+        <a class="link" href="#branchen">Branchen</a>
+        <a class="link" href="#referenzen">Referenzen</a>
+        <a class="link" href="#wissen">Knowledge</a>
+        <a class="link" href="#faq">FAQ</a>
+        <a class="link" href="#kontakt">Kontakt</a>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button id="lang" class="btn btn-ghost" aria-label="Sprache umschalten">DE/EN</button>
+        <button id="searchBtn" class="btn btn-ghost" aria-label="Suche öffnen">Suche</button>
+        <a class="btn btn-primary" href="#kontakt" aria-label="Kostenloses Erstgespräch">Erstgespräch</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">Unabhängig · Herstellerneutral · DACH</div>
+        <h1>ERP‑Strategie, Auswahl & Einführung – messbar erfolgreich</h1>
+        <p class="lead">Wir reduzieren Selektions‑ und Projekt­risiken, beschleunigen Ihre Einführung und sichern Akzeptanz. Von der Anforderung über das Lastenheft bis zum Go‑Live.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#pakete">Pakete & Preise</a>
+          <a class="btn btn-ghost" href="#leistungen">Leistungen</a>
+        </div>
+        <div class="trust">
+          <span class="pill">✓ 100% herstellerneutral</span>
+          <span class="pill">✓ Standardisierte Templates</span>
+          <span class="pill">✓ > 50 Projekte</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img class="portrait" alt="Berater Portrait" src="https://media.licdn.com/dms/image/v2/D4D03AQEI4FCJc0joiA/profile-displayphoto-scale_200_200/B4DZh02A5jG8Ao-/0/1754306974875?e=2147483647&v=beta&t=EzcpP-fqTZWwdF-pNglMg5eQxEGSgogftNlpdF51Qj0" />
+        <div style="padding:10px 6px 4px">
+          <div style="font-weight:700;font-size:1.05rem">Vorname Nachname</div>
+          <div class="pill" aria-label="Rolle">ERP‑Beratung & Projektleitung</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="alt">
+    <div class="container kpis">
+      <div class="kpi"><div class="v">50+ </div><div class="muted">abgeschlossene ERP‑Projekte</div></div>
+      <div class="kpi"><div class="v">25% </div><div class="muted">schnellere Einführung</div></div>
+      <div class="kpi"><div class="v"><span id="roi">3.2×</span></div><div class="muted">Ø ROI durch Standardisierung</div></div>
+      <div class="kpi"><div class="v">4.8★ </div><div class="muted">Kundenzufriedenheit</div></div>
+    </div>
+  </section>
+
+  <!-- Leistungen -->
+  <section id="leistungen">
+    <div class="container">
+      <div class="badge">Leistungen</div>
+      <h2>Was wir für Sie tun</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>Bedarfsanalyse & ERP‑Readiness</h3><p class="muted">Workshops, Process Mining, KPI‑Zielbild, Reifegrad.</p></div>
+        <div class="card"><h3>Lastenheft & Ausschreibung</h3><p class="muted">Muss/Kann, Bewertungsmatrix, Anbieterqualifizierung.</p></div>
+        <div class="card"><h3>Unabhängige Systemauswahl</h3><p class="muted">Demos, PoC, Referenzen, TCO‑Vergleich.</p></div>
+        <div class="card"><h3>Einführungsbegleitung</h3><p class="muted">Projektsteuerung, Test, Migration, Go‑Live & Hypercare.</p></div>
+        <div class="card"><h3>Change & Schulung</h3><p class="muted">Kommunikation, Training, Akzeptanzmanagement.</p></div>
+        <div class="card"><h3>Projektrettung (Turnaround)</h3><p class="muted">Audit, Risiko‑Backlog, Neuaufsetzung.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pakete & Preise (ähnlich zur referenzierten Seite) -->
+  <section id="pakete" class="alt">
+    <div class="container">
+      <div class="badge">Pakete</div>
+      <h2>Wählen Sie Ihr passendes Leistungspaket</h2>
+      <div class="pricing">
+        <div class="price">
+          <div class="tag">Für kleine Unternehmen</div>
+          <h3>New Digital ERP Consulting</h3>
+          <div class="amount">ab € 4.900*</div>
+          <ul>
+            <li>Definition der Anforderungen (Remote‑Workshops)</li>
+            <li>Anbietervorschläge & Checklisten</li>
+            <li>Ergebnis‑Workshop</li>
+          </ul>
+          <a class="btn btn-primary" href="#kontakt">Jetzt anfragen</a>
+        </div>
+        <div class="price">
+          <div class="tag">Für Selbermacher</div>
+          <h3>Innovative Advanced ERP Consulting</h3>
+          <div class="amount">ab € 7.900*</div>
+          <ul>
+            <li>Vorgehensmodell & Vorlagen</li>
+            <li>Vorschläge zur Anbieterauswahl</li>
+            <li>QS‑Webmeeting mit ERP‑Experten</li>
+          </ul>
+          <a class="btn btn-primary" href="#kontakt">Jetzt anfragen</a>
+        </div>
+        <div class="price">
+          <div class="tag">Individuell</div>
+          <h3>Full Service ERP Consulting</h3>
+          <div class="amount">nach Angebot</div>
+          <ul>
+            <li>Workshops, Digitales Geschäftsmodell, Prozesse</li>
+            <li>Requirement Engineering & Lastenheft</li>
+            <li>Risikomanagement, QS & Projektsteuerung</li>
+          </ul>
+          <a class="btn btn-primary" href="#kontakt">Beratung sichern</a>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:8px">*zzgl. MwSt. – Reisekosten nach Aufwand. Inhalte/Preise sind Beispiel‑Platzhalter.</p>
+    </div>
+  </section>
+
+  <!-- Vorgehen -->
+  <section id="vorgehen">
+    <div class="container">
+      <div class="badge">Vorgehen</div>
+      <h2>Strukturiert in 6 Schritten zum passenden ERP</h2>
+      <div class="grid cols-3 steps">
+        <div class="card step"><div class="num"></div><div><h3>Kick‑off</h3><p class="muted">Ziele, Scope, Governance, Roadmap.</p></div></div>
+        <div class="card step"><div class="num"></div><div><h3>Prozessaufnahme</h3><p class="muted">IST/SOLL, Wertstrom, KPIs.</p></div></div>
+        <div class="card step"><div class="num"></div><div><h3>Lastenheft</h3><p class="muted">Anforderungen, Prioritäten, Bewertungsmatrix.</p></div></div>
+        <div class="card step"><div class="num"></div><div><h3>Marktscreening</h3><p class="muted">Longlist → Shortlist, strukturierte Demos.</p></div></div>
+        <div class="card step"><div class="num"></div><div><h3>Auswahl</h3><p class="muted">PoC, Referenzen, TCO & Verhandlung.</p></div></div>
+        <div class="card step"><div class="num"></div><div><h3>Einführung</h3><p class="muted">Steuerung, Tests, Migration, Go‑Live.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Branchen -->
+  <section id="branchen" class="alt">
+    <div class="container">
+      <div class="badge">Branchen</div>
+      <h2>Diese Bereiche kennen wir</h2>
+      <div class="grid cols-4">
+        <div class="card"><h3>Fertigung</h3><p class="muted">Einzel‑, Auftrags‑ & Serienfertigung.</p></div>
+        <div class="card"><h3>Handel</h3><p class="muted">B2B/B2C, E‑Commerce, Omnichannel.</p></div>
+        <div class="card"><h3>Dienstleistung</h3><p class="muted">Projekt‑ & Service‑Geschäft.</p></div>
+        <div class="card"><h3>Food & Chemie</h3><p class="muted">Chargen, Rückverfolgung, QS.</p></div>
+      </div>
+      <div style="margin-top:22px" class="logos">
+        <div class="logo-tile">Logo A</div>
+        <div class="logo-tile">Logo B</div>
+        <div class="logo-tile">Logo C</div>
+        <div class="logo-tile">Logo D</div>
+        <div class="logo-tile">Logo E</div>
+        <div class="logo-tile">Logo F</div>
+      </div>
+      <p class="muted" style="margin-top:8px">Hinweis: Platzhalter‑Logos. Bitte eigene Referenzen/Markenrechte verwenden.</p>
+    </div>
+  </section>
+
+  <!-- Referenzen / Cases -->
+  <section id="referenzen">
+    <div class="container">
+      <div class="badge">Kundenerfolge</div>
+      <h2>Ausgewählte Projekte</h2>
+      <div class="grid">
+        <div class="case card">
+          <div style="background:#0b152d;border:1px solid #1f2a44;border-radius:14px;min-height:180px"></div>
+          <div>
+            <h3>Maschinenbau (120 MA) – ERP‑Auswahl in 12 Wochen</h3>
+            <p class="muted">Von der Anforderungserhebung bis zur finalen Entscheidung. 18% geringere Gesamtkosten, klare Roadmap, hoher Team‑Buy‑in.</p>
+          </div>
+        </div>
+        <div class="case card">
+          <div style="background:#0b152d;border:1px solid #1f2a44;border-radius:14px;min-height:180px"></div>
+          <div>
+            <h3>Großhandel – Go‑Live ohne Produktionsstillstand</h3>
+            <p class="muted">Migration in Wellen, Testkonzept, Hypercare 6 Wochen, stabile Prozesse ab Woche 2.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Knowledge Centre / Blog -->
+  <section id="wissen" class="alt">
+    <div class="container">
+      <div class="badge">Knowledge Centre</div>
+      <h2>Publikationen, Downloads & Videos</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>Leitfaden ERP‑Auswahl 2025</h3><p class="muted">Checkliste & Bewertungsmatrix zum kostenlosen Download.</p><a class="btn btn-primary" href="#">Download</a></div>
+        <div class="card"><h3>Podcast: Projektrettung</h3><p class="muted">Woran scheitern ERP‑Projekte – und wie drehen wir sie?</p><a class="btn btn-ghost" href="#">Anhören</a></div>
+        <div class="card"><h3>Video: Lastenheft kompakt</h3><p class="muted">In 10 Minuten zum tragfähigen Lastenheft.</p><a class="btn btn-ghost" href="#">Ansehen</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container faq">
+      <div class="badge">FAQ</div>
+      <h2>Häufige Fragen</h2>
+      <details>
+        <summary>Warum unabhängige ERP‑Beratung?</summary>
+        <p>Sie erhalten eine neutrale Bewertung der Lösungen, fokussiert auf Ihre Prozesse, KPIs und TCO – nicht auf Anbieterinteressen.</p>
+      </details>
+      <details>
+        <summary>Wie lange dauert die Auswahl?</summary>
+        <p>Typisch 8–12 Wochen mit strukturierter Shortlist, Demos, PoC und Bewertungsmatrix.</p>
+      </details>
+      <details>
+        <summary>Welche Ergebnisse bekomme ich?</summary>
+        <p>Readiness‑Report, Lastenheft, Bewertungsmatrix, Entscheidungsvorlage, Implementierungs‑Fahrplan.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="alt">
+    <div class="container contact">
+      <div>
+        <div class="badge">Kontakt</div>
+        <h2>Kostenloses Erstgespräch vereinbaren</h2>
+        <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/danke.html">
+          <input type="hidden" name="form-name" value="kontakt">
+          <p class="sr-only"><label>Nicht ausfüllen: <input name="bot-field" /></label></p>
+          <label><input required name="name" placeholder="Ihr Name" /></label>
+          <label><input required type="email" name="email" placeholder="E‑Mail" /></label>
+          <div class="grid cols-2">
+            <label><input name="company" placeholder="Unternehmen (optional)" /></label>
+            <label>
+              <select name="package">
+                <option value="">Paket (optional)</option>
+                <option>New Digital ERP Consulting</option>
+                <option>Innovative Advanced ERP Consulting</option>
+                <option>Full Service ERP Consulting</option>
+              </select>
+            </label>
+          </div>
+          <label><textarea required name="message" placeholder="Ihr Anliegen…"></textarea></label>
+          <div data-netlify-recaptcha="true"></div>
+          <button class="btn btn-primary" type="submit">Anfrage senden</button>
+          <p class="muted small">Mit Absenden stimmen Sie der Verarbeitung gemäß Datenschutz zu.</p>
+        </form>
+      </div>
+      <div class="card">
+        <h3>Direktkontakt</h3>
+        <p class="muted">Telefon: <a href="tel:+4999999999">+49 999 999 99</a><br>E‑Mail: <a href="mailto:hello@example.com">hello@example.com</a></p>
+        <p class="muted">Adresse: Musterstraße 1, 00000 Musterstadt</p>
+        <div class="small">Impressum · Datenschutz · AGB (Platzhalter)</div>
+        <div style="margin-top:10px">
+          <h4>Newsletter</h4>
+          <form name="newsletter" method="POST" data-netlify="true" action="/danke.html">
+            <input type="hidden" name="form-name" value="newsletter">
+            <div class="grid cols-2">
+              <input type="email" name="email" placeholder="Ihre E‑Mail" required>
+              <button class="btn btn-primary" type="submit">Abonnieren</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:10px"><span class="mark">ERP</span><span>Ihre ERP‑Beratung</span></div>
+        <p class="muted">Wir machen ERP‑Projekte kalkulierbar – mit klaren Entscheidungen, sauberer Umsetzung und echtem Nutzen.</p>
+      </div>
+      <div>
+        <h4>Leistungen</h4>
+        <ul class="small muted">
+          <li>Bedarfsanalyse</li>
+          <li>Systemauswahl</li>
+          <li>Einführung</li>
+          <li>Projektrettung</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul class="small muted">
+          <li>Über uns</li>
+          <li>Karriere</li>
+          <li>Kontakt</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul class="small muted">
+          <li>Impressum</li>
+          <li>Datenschutz</li>
+          <li>Cookie‑Einstellungen</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container" style="margin-top:12px" aria-label="Copyright">
+      <div class="muted small">© <span id="year"></span> Ihre ERP‑Beratung. Alle Rechte vorbehalten.</div>
+    </div>
+  </footer>
+
+  <div class="floating-cta"><a href="#kontakt" class="btn btn-primary" aria-label="Zum Kontaktformular">Meeting buchen</a></div>
+
+  <!-- Overlays -->
+  <div class="search" id="search">
+    <div class="box">
+      <h3>Website durchsuchen</h3>
+      <input id="searchInput" placeholder="Suchbegriff…" />
+      <div id="searchResults" class="muted" style="margin-top:12px"></div>
+      <div style="margin-top:12px;display:flex;gap:10px"><button class="btn btn-primary" id="searchClose">Schließen</button></div>
+    </div>
+  </div>
+
+  <div class="cookie" id="cookie">
+    <div class="container" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+      <div class="small">Wir verwenden technisch notwendige Cookies. Optionale Analyse‑Cookies können Sie akzeptieren oder ablehnen.</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost" id="cookieDeny">Ablehnen</button>
+        <button class="btn btn-primary" id="cookieAllow">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schema.org & Scripts -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"Ihre ERP‑Beratung",
+    "areaServed":["DE","AT","CH"],
+    "url":"https://example.com",
+    "logo":"",
+    "sameAs":["https://www.linkedin.com/"],
+    "address":{"@type":"PostalAddress","streetAddress":"Musterstraße 1","addressLocality":"Musterstadt","postalCode":"00000","addressCountry":"DE"},
+    "contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"hello@example.com","telephone":"+49-999-999-99","areaServed":"DE"}],
+    "hasOfferCatalog":{
+      "@type":"OfferCatalog",
+      "name":"ERP‑Consulting Pakete",
+      "itemListElement":[
+        {"@type":"Offer","name":"New Digital ERP Consulting","price":"4900","priceCurrency":"EUR"},
+        {"@type":"Offer","name":"Innovative Advanced ERP Consulting","price":"7900","priceCurrency":"EUR"},
+        {"@type":"Offer","name":"Full Service ERP Consulting","price":"0","priceCurrency":"EUR"}
+      ]
+    }
+  }
+  </script>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){e.preventDefault();document.querySelector(id)?.scrollIntoView({behavior:'smooth'});}  
+      })
+    });
+
+    // Language toggle (demo)
+    document.getElementById('lang').addEventListener('click',()=>{
+      alert('Sprachumschaltung Demo – hier könnte EN/DE Content geladen werden.');
+    });
+
+    // Simple on‑page search
+    const search = document.getElementById('search');
+    document.getElementById('searchBtn').onclick=()=>search.style.display='flex';
+    document.getElementById('searchClose').onclick=()=>search.style.display='none';
+    const results = document.getElementById('searchResults');
+    document.getElementById('searchInput').addEventListener('input', (e)=>{
+      const q=e.target.value.toLowerCase();
+      if(!q){results.textContent='';return}
+      const hits=[...document.querySelectorAll('h2,h3,p,li')].filter(n=>n.textContent.toLowerCase().includes(q)).slice(0,10);
+      results.innerHTML = hits.length ? '<ul>'+hits.map(h=>`<li>${h.textContent.substring(0,120)}…</li>`).join('')+'</ul>' : 'Keine Treffer.';
+    });
+
+    // Cookie banner
+    const cookie=document.getElementById('cookie');
+    const consent=localStorage.getItem('consent');
+    if(consent===null){cookie.style.display='block'}
+    document.getElementById('cookieAllow').onclick=()=>{localStorage.setItem('consent','yes');cookie.remove()}
+    document.getElementById('cookieDeny').onclick=()=>{localStorage.setItem('consent','no');cookie.remove()}
+
+    // Example KPI calc
+    const roiEl=document.getElementById('roi');
+    const base=3 + Math.random()*0.6; roiEl.textContent=base.toFixed(1)+'×';
+  </script>
 </body>
 </html>
+
+
